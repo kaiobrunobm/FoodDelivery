@@ -30,8 +30,7 @@ import com.kaiobrunobm.fooddelivery.ui.theme.AppTheme
 
 @Composable
 fun ProductPreviewSection(
-    modifier: Modifier = Modifier, state: ProductPreviewState
-
+    modifier: Modifier = Modifier, state: ProductPreviewState, onCloseButton: () -> Unit
 ) {
     Box(
         modifier = modifier.height(IntrinsicSize.Max)
@@ -40,9 +39,11 @@ fun ProductPreviewSection(
             modifier = Modifier.padding(bottom = 24.dp)
         )
         Content(
-            state = state, modifier = Modifier
+            state = state,
+            modifier = Modifier
                 .statusBarsPadding()
-                .padding(top = 24.dp)
+                .padding(top = 24.dp),
+            onCloseButton = onCloseButton
         )
     }
 }
@@ -64,7 +65,7 @@ private fun ProductBackground(
 
 @Composable
 private fun Content(
-    modifier: Modifier = Modifier, state: ProductPreviewState
+    modifier: Modifier = Modifier, state: ProductPreviewState, onCloseButton: () -> Unit
 ) {
     ConstraintLayout(
         modifier = modifier.fillMaxWidth()
@@ -73,11 +74,13 @@ private fun Content(
 
         ActionBar(
             headline = "Mr. Cheezy",
+            onCloseButton = onCloseButton,
             modifier = Modifier
                 .padding(horizontal = 18.dp)
                 .constrainAs(actionBar) {
                     top.linkTo(parent.top)
                 })
+
 
         Image(
             painter = painterResource(R.drawable.realistcburger),
@@ -100,7 +103,7 @@ private fun Content(
 
 @Composable
 fun ActionBar(
-    modifier: Modifier = Modifier, headline: String
+    modifier: Modifier = Modifier, headline: String, onCloseButton: () -> Unit
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),
@@ -114,10 +117,9 @@ fun ActionBar(
         )
 
         CloseButton(
-            modifier
-                .clickable(
-                    onClick = {println("TODO()")}
-                )
+            modifier.clickable(
+                onClick = onCloseButton
+            )
         )
     }
 }

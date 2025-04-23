@@ -41,6 +41,7 @@ fun ProductDetailsScreen(
     amountCheddar: Int,
     amountBacon: Int,
     amountOnion: Int,
+    onCloseButton: () -> Unit
 ) {
     Box(
         modifier = modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter
@@ -55,7 +56,7 @@ fun ProductDetailsScreen(
             amountCheddar = amountCheddar,
             amountBacon = amountBacon,
             amountOnion = amountOnion,
-
+            onCloseButton = onCloseButton
         )
         OrderActionBar(
             state = orderState,
@@ -83,6 +84,7 @@ private fun Content(
     amountCheddar: Int,
     amountBacon: Int,
     amountOnion: Int,
+    onCloseButton: () -> Unit
 ) {
     val scrollableState = rememberScrollState()
 
@@ -90,7 +92,8 @@ private fun Content(
         modifier = modifier.verticalScroll(scrollableState)
     ) {
         ProductPreviewSection(
-            state = productPreviewState
+            state = productPreviewState,
+            onCloseButton = onCloseButton,
         )
         Spacer(
             modifier = Modifier.height(16.dp)

@@ -23,6 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.BurgerActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.FoodDelivery">
+        </activity>
     </application>
 
 </manifest>

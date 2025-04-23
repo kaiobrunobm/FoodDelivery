@@ -24,6 +24,7 @@ data class AppTypography(
     val titleSmall: TextStyle,
     val body: TextStyle,
     val bodySmall: TextStyle,
+    val bodyLarge: TextStyle,
     val label: TextStyle
 
 )
@@ -36,6 +37,7 @@ val LocalAppTypography = staticCompositionLocalOf {
         titleSmall = TextStyle.Default,
         body = TextStyle.Default,
         bodySmall = TextStyle.Default,
+        bodyLarge = TextStyle.Default,
         label = TextStyle.Default
     )
 }
@@ -70,6 +72,11 @@ val extendedTypography = AppTypography(
         fontFamily = UnboundedFontFamily,
         fontSize = 12.sp,
         fontWeight = FontWeight.Normal
+    ),
+    bodyLarge = TextStyle(
+        fontFamily = UnboundedFontFamily,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Light
     ),
     label = TextStyle(
         fontFamily = UnboundedFontFamily,

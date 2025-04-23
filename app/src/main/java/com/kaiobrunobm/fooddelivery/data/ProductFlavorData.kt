@@ -7,3 +7,4 @@ data class ProductFlavorState(
     val price: String,
     @DrawableRes val imageRes: Int,
     )
+
